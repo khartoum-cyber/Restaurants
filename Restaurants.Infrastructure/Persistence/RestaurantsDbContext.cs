@@ -5,13 +5,10 @@ namespace Restaurants.Infrastructure.Persistence
 {
     internal class RestaurantsDbContext : DbContext
     {
+        public RestaurantsDbContext(DbContextOptions<RestaurantsDbContext> option) : base(option) { }
+        
         internal DbSet<Restaurant> Restaurants { get; set; }
         internal DbSet<Dish> Dishes { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=RestaurantsDb;Trusted_Connection=True;");
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
