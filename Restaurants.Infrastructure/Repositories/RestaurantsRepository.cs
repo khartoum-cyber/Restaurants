@@ -21,7 +21,9 @@ namespace Restaurants.Infrastructure.Repositories
 
         public async Task<Restaurant?> GetAsync(int id)
         {
-            var restaurant = await _repository.Restaurants.FirstOrDefaultAsync(r => r.Id == id);
+            var restaurant = await _repository.Restaurants
+                .Include(r => r.Dishes)
+                .FirstOrDefaultAsync(r => r.Id == id);
             return restaurant;
         }
     }

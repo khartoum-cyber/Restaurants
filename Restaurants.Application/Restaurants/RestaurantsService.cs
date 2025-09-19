@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using Restaurants.Domain.Entities;
+using Restaurants.Application.DTOs;
 using Restaurants.Domain.Repositories;
 
 namespace Restaurants.Application.Restaurants
@@ -15,18 +15,20 @@ namespace Restaurants.Application.Restaurants
             _logger = logger;
         }
 
-        public async Task<IEnumerable<Restaurant>> GetAllRestaurants()
+        public async Task<IEnumerable<RestaurantDTO>> GetAllRestaurants()
         {
             _logger.LogInformation("Getting all restaurants");
             var restaurants = await _restaurantRepository.GetAllAsync();
-            return restaurants;
+            var restaurantsDTO = restaurants.Select(RestaurantDTO.FromEntity);
+            return restaurantsDTO!;
         }
 
-        public async Task<Restaurant?> GetRestaurantById(int id)
+        public async Task<RestaurantDTO?> GetRestaurantById(int id)
         {
             _logger.LogInformation($"Getting restaurant with id: {id}");
             var restaurant = await _restaurantRepository.GetAsync(id);
-            return restaurant;
+            var restaurantDTO = RestaurantDTO.FromEntity(restaurant);
+            return restaurantDTO;
         }
     }
 }
