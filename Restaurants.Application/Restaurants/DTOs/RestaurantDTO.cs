@@ -1,7 +1,7 @@
 ﻿using Restaurants.Application.Dishes.DTOs;
 using Restaurants.Domain.Entities;
 
-namespace Restaurants.Application.DTOs
+namespace Restaurants.Application.Restaurants.DTOs
 {
     public class RestaurantDTO
     {

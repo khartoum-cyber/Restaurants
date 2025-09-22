@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using Restaurants.Application.DTOs;
+using Restaurants.Application.Restaurants.DTOs;
 using Restaurants.Domain.Repositories;
 
 namespace Restaurants.Application.Restaurants
