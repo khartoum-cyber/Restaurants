@@ -31,5 +31,10 @@ namespace Restaurants.API.Controllers
             return NotFound();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> CreateRestaurant([FromBody])
+        {
+
+        }
     }
 }
