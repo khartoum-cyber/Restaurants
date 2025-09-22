@@ -33,7 +33,7 @@ namespace Restaurants.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateRestaurant([FromBody]CreateRestaurantDTO createRestaurantDTO)
+        public async Task<IActionResult> CreateRestaurant(CreateRestaurantDTO createRestaurantDTO)
         {
             int id = await _restaurantsService.Create(createRestaurantDTO);
             return CreatedAtAction("GetById", new { id }, null);
