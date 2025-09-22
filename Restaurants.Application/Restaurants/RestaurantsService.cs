@@ -15,6 +15,14 @@ namespace Restaurants.Application.Restaurants
             _logger = logger;
         }
 
+        public async Task<int> Create(CreateRestaurantDTO dto)
+        {
+            _logger.LogInformation("Creating a new restaurant");
+            var restaurant = CreateRestaurantDTO.FromEntity(dto);
+            int id = await _restaurantRepository.Create(restaurant);
+            return id;
+        }
+
         public async Task<IEnumerable<RestaurantDTO>> GetAllRestaurants()
         {
             _logger.LogInformation("Getting all restaurants");

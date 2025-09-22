@@ -16,12 +16,12 @@ namespace Restaurants.Application.Restaurants.DTOs
         public string? Street { get; set; }
         public string? PostalCode { get; set; }
 
-        public static CreateRestaurantDTO? FromEntity(Restaurant? restaurant)
+        public static Restaurant? FromEntity(CreateRestaurantDTO? restaurant)
         {
             if (restaurant == null)
                 return null;
 
-            return new CreateRestaurantDTO
+            return new Restaurant()
             {
                 Name = restaurant.Name,
                 Description = restaurant.Description,
@@ -29,9 +29,12 @@ namespace Restaurants.Application.Restaurants.DTOs
                 HasDelivery = restaurant.HasDelivery,
                 ContactEmail = restaurant.ContactEmail,
                 ContactNumber = restaurant.ContactNumber,
-                City = restaurant.Address?.City,
-                Street = restaurant.Address?.Street,
-                PostalCode = restaurant.Address?.PostalCode
+                Address = new Address()
+                {
+                    City = restaurant.City,
+                    Street = restaurant.Street,
+                    PostalCode = restaurant.PostalCode
+                }
             };
         }
     }

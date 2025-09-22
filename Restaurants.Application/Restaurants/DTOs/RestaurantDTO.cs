@@ -34,5 +34,22 @@ namespace Restaurants.Application.Restaurants.DTOs
                 Dishes = restaurant.Dishes.Select(DishDTO.FromEntity).ToList()
             };
         }
+
+        public static RestaurantDTO? FromEntity(CreateRestaurantDTO? restaurant)
+        {
+            if (restaurant == null)
+                return null;
+
+            return new RestaurantDTO()
+            {
+                Category = restaurant.Category,
+                Description = restaurant.Description,
+                HasDelivery = restaurant.HasDelivery,
+                Name = restaurant.Name,
+                City = restaurant.City,
+                Street = restaurant.Street,
+                PostalCode = restaurant.PostalCode
+            };
+        }
     }
 }
