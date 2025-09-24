@@ -15,27 +15,5 @@ namespace Restaurants.Application.Restaurants.DTOs
         public string? City { get; set; }
         public string? Street { get; set; }
         public string? PostalCode { get; set; }
-
-        public static Restaurant? FromEntity(CreateRestaurantDTO? restaurant)
-        {
-            if (restaurant == null)
-                return null;
-
-            return new Restaurant()
-            {
-                Name = restaurant.Name,
-                Description = restaurant.Description,
-                Category = restaurant.Category,
-                HasDelivery = restaurant.HasDelivery,
-                ContactEmail = restaurant.ContactEmail,
-                ContactNumber = restaurant.ContactNumber,
-                Address = new Address()
-                {
-                    City = restaurant.City,
-                    Street = restaurant.Street,
-                    PostalCode = restaurant.PostalCode
-                }
-            };
-        }
     }
 }
