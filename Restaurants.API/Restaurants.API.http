@@ -26,4 +26,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:5090/api/restaurants/3
+@id=09
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/{{id}}
+
+###
