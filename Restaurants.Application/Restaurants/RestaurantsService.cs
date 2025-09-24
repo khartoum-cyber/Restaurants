@@ -25,10 +25,7 @@ namespace Restaurants.Application.Restaurants
 
         public async Task<RestaurantDTO?> GetRestaurantById(int id)
         {
-            _logger.LogInformation($"Getting restaurant with id: {id}");
-            var restaurant = await _restaurantRepository.GetAsync(id);
-            var restaurantDTO = _mapper.Map<RestaurantDTO?>(restaurant);
-            return restaurantDTO;
+
         }
     }
 }
