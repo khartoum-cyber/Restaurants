@@ -20,10 +20,7 @@ namespace Restaurants.Application.Restaurants
 
         public async Task<IEnumerable<RestaurantDTO>> GetAllRestaurants()
         {
-            _logger.LogInformation("Getting all restaurants");
-            var restaurants = await _restaurantRepository.GetAllAsync();
-            var restaurantsDTO = _mapper.Map<IEnumerable<RestaurantDTO>>(restaurants);
-            return restaurantsDTO!;
+
         }
 
         public async Task<RestaurantDTO?> GetRestaurantById(int id)
