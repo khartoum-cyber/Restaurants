@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using AutoMapper;
+using Microsoft.Extensions.Logging;
 using Restaurants.Application.Restaurants.DTOs;
 using Restaurants.Domain.Repositories;
 
@@ -8,11 +9,13 @@ namespace Restaurants.Application.Restaurants
     {
         private readonly IRestaurantsRepository _restaurantRepository;
         private readonly ILogger<RestaurantsService> _logger;
+        private readonly IMapper _mapper;
 
-        public RestaurantsService(IRestaurantsRepository restaurantsRepository, ILogger<RestaurantsService> logger)
+        public RestaurantsService(IRestaurantsRepository restaurantsRepository, ILogger<RestaurantsService> logger, IMapper mapper)
         {
             _restaurantRepository = restaurantsRepository;
             _logger = logger;
+            _mapper = mapper;
         }
 
         public async Task<int> Create(CreateRestaurantDTO dto)
@@ -27,7 +30,7 @@ namespace Restaurants.Application.Restaurants
         {
             _logger.LogInformation("Getting all restaurants");
             var restaurants = await _restaurantRepository.GetAllAsync();
-            var restaurantsDTO = restaurants.Select(RestaurantDTO.FromEntity);
+            var restaurantsDTO = _mapper.Map<IEnumerable<RestaurantDTO>>(restaurants);
             return restaurantsDTO!;
         }
 
@@ -35,7 +38,7 @@ namespace Restaurants.Application.Restaurants
         {
             _logger.LogInformation($"Getting restaurant with id: {id}");
             var restaurant = await _restaurantRepository.GetAsync(id);
-            var restaurantDTO = RestaurantDTO.FromEntity(restaurant);
+            var restaurantDTO = _mapper.Map<RestaurantDTO?>(restaurant);
             return restaurantDTO;
         }
     }
