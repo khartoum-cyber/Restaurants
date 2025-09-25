@@ -26,6 +26,8 @@ namespace Restaurants.Infrastructure.Repositories
             await _repository.SaveChangesAsync();
         }
 
+        public Task SaveChanges() => _repository.SaveChangesAsync();
+        
         public async Task<IEnumerable<Restaurant>> GetAllAsync()
         {
             var restaurants = await _repository.Restaurants.Include(r => r.Dishes).ToListAsync();
