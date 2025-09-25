@@ -21,15 +21,12 @@ namespace Restaurants.Application.Restaurants.Commands.UpdateRestaurant
 
         public async Task<bool> Handle(UpdateRestaurantCommand request, CancellationToken cancellationToken)
         {
-            _logger.LogInformation($"Updating restaurant with id: {request.Id}");
+            _logger.LogInformation("Updating restaurant with id: {RestaurantId} with {@UpdatedRestaurant}", request.Id, request);
             var restaurant = await _restaurantsRepository.GetAsync(request.Id);
             if (restaurant == null)
                 return false;
 
             _mapper.Map(request, restaurant);
-            //restaurant.Name = request.Name;
-            //restaurant.Description = request.Description;
-            //restaurant.HasDelivery = request.HasDelivery;
 
             await _restaurantsRepository.SaveChanges();
 
