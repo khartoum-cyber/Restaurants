@@ -5,7 +5,7 @@ Accept: application/json
 
 ###
 
-@id=7
+@id=1
 GET {{Restaurants.API_HostAddress}}/api/restaurants/{{id}}
 
 ###
@@ -34,7 +34,6 @@ DELETE {{Restaurants.API_HostAddress}}/api/restaurants/{{id}}
 @id=2
 PATCH {{Restaurants.API_HostAddress}}/api/restaurants/{{id}}
 Content-Type: application/json
-
 {
       "Name": "Owner2 restaurant2",
       "Description": "A cozy restaurant serving a variety of delicious dishes.",
