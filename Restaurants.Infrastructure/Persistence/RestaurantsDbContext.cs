@@ -3,7 +3,7 @@ using Restaurants.Domain.Entities;
 
 namespace Restaurants.Infrastructure.Persistence
 {
-    internal class RestaurantsDbContext : DbContext
+    public class RestaurantsDbContext : DbContext
     {
         public RestaurantsDbContext(DbContextOptions<RestaurantsDbContext> option) : base(option) { }
         

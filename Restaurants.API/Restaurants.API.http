@@ -41,3 +41,15 @@ Content-Type: application/json
 }
 
 ###
+# CreateDishCommand
+POST {{Restaurants.API_HostAddress}}/api/restaurants/11/dishes
+Content-Type: application/json
+
+{
+  "Name": "Spaghetti Bolognese",
+  "Description": "Classic Italian pasta dish with rich meat sauce",
+  "Price": 12.99,
+  "KiloCalories": 750
+}
+
+###
