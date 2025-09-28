@@ -6,7 +6,7 @@ using Restaurants.Application.Restaurants.Commands.CreateRestaurant;
 using Restaurants.Domain.Exceptions;
 using Restaurants.Domain.Repositories;
 
-namespace Restaurants.Application.Dishes.Queries
+namespace Restaurants.Application.Dishes.Queries.GetDishForRestaurant
 {
     public class GetDishesForRestaurantQueryHandler : IRequestHandler<GetDishesForRestaurantQuery, IEnumerable<DishDTO>>
     {
