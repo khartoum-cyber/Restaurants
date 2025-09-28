@@ -8,7 +8,7 @@ using Restaurants.Domain.Repositories;
 
 namespace Restaurants.Application.Dishes.Commands.CreateDish
 {
-    public class CreateDishCommandHandler : IRequestHandler<CreateDishCommand>
+    public class CreateDishCommandHandler : IRequestHandler<CreateDishCommand, int>
     {
         private readonly IMapper _mapper;
         private readonly ILogger<CreateRestaurantCommandHandler> _logger;
@@ -22,7 +22,7 @@ namespace Restaurants.Application.Dishes.Commands.CreateDish
             _restaurantsRepository = restaurantsRepository;
             _dishesRepository = dishesRepository;
         }
-        public async Task Handle(CreateDishCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateDishCommand request, CancellationToken cancellationToken)
         {
             _logger.LogInformation("Creating new dish: {@DishRequest}", request);
             var restaurant = _restaurantsRepository.GetAsync(request.RestaurantId);
@@ -30,7 +30,7 @@ namespace Restaurants.Application.Dishes.Commands.CreateDish
                 throw new NotFoundException(nameof(restaurant), request.RestaurantId.ToString());
 
             var dish = _mapper.Map<Dish>(request);
-            await _dishesRepository.Create(dish);
+            return await _dishesRepository.Create(dish);
         }
     }
 }

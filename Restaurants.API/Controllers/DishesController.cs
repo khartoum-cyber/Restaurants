@@ -23,8 +23,8 @@ namespace Restaurants.API.Controllers
         public async Task<IActionResult> CreateDish([FromRoute]int restaurantId, CreateDishCommand command)
         {
             command.RestaurantId = restaurantId;
-            await _mediator.Send(command);
-            return Created();
+            var dishId = await _mediator.Send(command);
+            return CreatedAtAction("GetByIdForRestaurant", new { restaurantId, dishId}, null);
         }
 
         [HttpGet]
