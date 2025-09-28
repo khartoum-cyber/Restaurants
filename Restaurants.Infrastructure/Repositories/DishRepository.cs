@@ -17,5 +17,11 @@ namespace Restaurants.Infrastructure.Repositories
             await _repository.SaveChangesAsync();
             return entity.Id;
         }
+
+        public async Task Delete(IEnumerable<Dish> entities)
+        {
+            _repository.Dishes.RemoveRange(entities);
+            await _repository.SaveChangesAsync();
+        }
     }
 }

@@ -6,7 +6,7 @@ using Restaurants.Domain.Entities;
 using Restaurants.Domain.Exceptions;
 using Restaurants.Domain.Repositories;
 
-namespace Restaurants.Application.Dishes.Commands
+namespace Restaurants.Application.Dishes.Commands.CreateDish
 {
     public class CreateDishCommandHandler : IRequestHandler<CreateDishCommand>
     {

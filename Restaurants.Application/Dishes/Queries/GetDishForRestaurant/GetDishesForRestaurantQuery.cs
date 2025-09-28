@@ -11,6 +11,5 @@ namespace Restaurants.Application.Dishes.Queries.GetDishForRestaurant
             RestaurantId = restaurantId;
         }
 
-
     }
 }
