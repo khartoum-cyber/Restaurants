@@ -1,6 +1,6 @@
 @Restaurants.API_HostAddress = http://localhost:5090
 
-@token=CfDJ8Cb8nu7S15JKoAbrplaT3KicI2klg-c863bGMReS1AaxZNjAZLuUdpqkzS57XzF8tZClC4RShlm8vcMbWaSU_oVkfM93_twJQznZ6sb6xSYkCadZU56B1tBxCdyXYbDjd6zwYf8PhPrITcyelZW_MxpvoP902pOmw9APSBaUKNDruuLkwRBdzOhOA5SC9GRuBlfdw0lIu-fECdtSGwYUSSr_5ezC211FbRR5og0x7WvUACC-pFgkS8YJUMRgPYgWKUaRWuwDqCHGEpKDWjbWYq8xOIrrLPAZLQbBIybnta0UPJ7FU3PVgSDNB8u4b0GKdCTsxL_sexPGxDDNB6NtpbkUB-vuoZUjj81YsGRj1fEUCNxQFGu2Iq7tHbyYemgZenSOrxWsLevPI95mrceMp-Ijer3TsgI1vAyhE9vT2yba8AmMvaeYBUs6mBNs5yj587DwDaz9qvJhkfReVsxLe_ujqBHQ_ODYe6TGXZfl55YlBjFjy7ZpQKYqTSguT5VA8L19mcTHjlHXSvW2kwoILtTvQXAULRVUk93HGyalJsAl3kVM1C_Xp19p1bgy7Z3oHsF8a8pXwTvn_N_1jjZWHaXXW2gq1RDu3oL7tmXtY5mSmbksYEDsYFQn8T3zZL5n_hkaNjzow9TjEzB3Hx8ouL084kNLgu-L5n_2cid8G6Axqb_1vWZ3aP70WKcY1m8sNQ
+@token=CfDJ8Cb8nu7S15JKoAbrplaT3KiWXMZYuNha3063Z8mvYSMspLisT8POXwqijI_mAq9CLEbR-OtvbGIDTW9z-XXRDJe6yaSUuXLWcaaBVRGaGzmodJcwXk-u6ZCRXAeEcOLf86t_oVM0aABGJ36oJ_fc-CBRqj4q9Bxi6QSAVvLa50exxe_ACkJi5Vy-Eq6ICNLeSvSzlY_tAhPlbiHUHwR5_gr8bJbHMOMfxRjF95Xt3SxpgGi10_SH0ez-F4-IZxdKe5Gt9HCb9H58ihopRgfDclfoFT6uZu-mpK057nejUjef77rZbMiWCqPBJZNeqbbRDuzg1HmjskyMcNyUFNPGl6Lyot91iuS0RsqSJwW_2BIIfT8GaOdsx87UPn_baU1REmcJ9CVCAWHHZY4MUwoM88k-doQkI91bmrH6wi_DT7U5rUjn60MrdGOM86uMqNK7ffpMOfuCTPaGD-kUZTUNhCdyX2HnXin0EuZqwqF2phYyfdcK_Dp8cggo_p_MCwzkP8x913cuJHB2tWqfJqznrsMF_vRvunsbL3-_RhpMyUEidO0k2_70rFbvDp6aIvJlvWxk0PKkRzk6IiD9zK0Lne0e-IqAJfEkLhl7dOnvr-uO9365JKxb7fBT_pDsp_zgAXMmr-RQ5kfruMzrujZUdcwpBZMTRJVJkH4w_61MknXeZ1op4G0Yn7Ks5z7kFnvg2HAtpxbHYrhuBbT42XN9yYOHBL0hmt6oIopJfMF_ld8S-5bh7yJMMHbCECflrWrLNh5rBX4SW3joIpIXUn5-Ey4DGRWccVmRuIzx2cbWiSe-
 
 GET {{Restaurants.API_HostAddress}}/api/restaurants
 Accept: application/json
@@ -14,11 +14,12 @@ GET {{Restaurants.API_HostAddress}}/api/restaurants/{{id}}
 ###
 
 POST {{Restaurants.API_HostAddress}}/api/restaurants
+Authorization: Bearer {{token}}
 Content-Type: application/json
 {
-      "Name": "Owner2 restaurant2",
-      "Description": "A cozy restaurant serving a variety of delicious dishes.",
-      "Category": "Indian",
+      "Name": "BLA restaurant",
+      "Description": "A BLA restaurant serving a variety of delicious dishes.",
+      "Category": "BLA",
       "HasDelivery": true,
       "ContactEmail": "info@test.com",
       "ContactNumber": "555-1234",
@@ -77,7 +78,7 @@ POST {{Restaurants.API_HostAddress}}/api/identity/register
 Content-Type: application/json
 
 {
-    "email": "testuser@test.com",
+    "email": "owner@test.com",
     "password": "Password1!"
 }
 
@@ -87,6 +88,6 @@ POST {{Restaurants.API_HostAddress}}/api/identity/login
 Content-Type: application/json
 
 {
-    "email": "testuser@test.com",
+    "email": "owner@test.com",
     "password": "Password1!"
 }
