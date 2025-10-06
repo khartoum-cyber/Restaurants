@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Restaurants.Domain.Exceptions;
 
-namespace Restaurants.Application.User.Commands
+namespace Restaurants.Application.User.Commands.UpdateUserDetails
 {
     public class UpdateUserDetailsCommandHandler : IRequestHandler<UpdateUserDetailsCommand>
     {
