@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Restaurants.Application.User.Commands.AssignUserRole;
+using Restaurants.Application.User.Commands.DeleteUserRole;
 using Restaurants.Application.User.Commands.UpdateUserDetails;
 using Restaurants.Domain.Constants;
 
@@ -29,6 +30,14 @@ namespace Restaurants.API.Controllers
         [HttpPost("userRole")]
         [Authorize(Roles = UserRoles.Admin)]
         public async Task<IActionResult> AssignUserRole(AssignUserRoleCommand command)
+        {
+            await _mediator.Send(command);
+            return NoContent();
+        }
+
+        [HttpDelete("userRole")]
+        [Authorize(Roles = UserRoles.Admin)]
+        public async Task<IActionResult> DeleteUserRole(DeleteUserRoleCommand command)
         {
             await _mediator.Send(command);
             return NoContent();
