@@ -28,6 +28,8 @@ namespace Restaurants.Infrastructure.Extensions
             services.AddScoped<IRestaurantSeeder, RestaurantSeeder>();
             services.AddScoped<IRestaurantsRepository, RestaurantsRepository>();
             services.AddScoped<IDishesRepository, DishRepository>();
+            services.AddAuthorizationBuilder()
+                .AddPolicy("HasNationality", builder => builder.RequireClaim("Nationality"));
         }
     }
 }
