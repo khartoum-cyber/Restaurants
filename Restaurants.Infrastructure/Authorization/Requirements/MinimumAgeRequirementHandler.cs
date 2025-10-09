@@ -36,6 +36,8 @@ namespace Restaurants.Infrastructure.Authorization.Requirements
             {
                 context.Fail();
             }
+
+            return Task.CompletedTask;
         }
     }
 }
