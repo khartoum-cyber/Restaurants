@@ -5,8 +5,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Restaurants.Domain.Entities;
 using Restaurants.Domain.Repositories;
+using Restaurants.Domain.Interfaces;
 using Restaurants.Infrastructure.Authorization;
 using Restaurants.Infrastructure.Authorization.Requirements;
+using Restaurants.Infrastructure.Authorization.Services;
 using Restaurants.Infrastructure.Persistence;
 using Restaurants.Infrastructure.Repositories;
 using Restaurants.Infrastructure.Seeders;
@@ -36,6 +38,7 @@ namespace Restaurants.Infrastructure.Extensions
                 .AddPolicy(PolicyNames.AtLeast20, builder => builder.AddRequirements(new MinimumAgeRequirement(20)));
 
             services.AddScoped<IAuthorizationHandler, MinimumAgeRequirementHandler>();
+            services.AddScoped<IRestaurantAuthorizationService, RestaurantAuthorizationService>();
         }
     }
 }
