@@ -25,7 +25,8 @@ namespace Restaurants.API.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
+        //[AllowAnonymous]
+        [Authorize(Policy = PolicyNames.CreatedAtLeast2Restaurants)]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<RestaurantDTO>))]
         public async Task<ActionResult<IEnumerable<RestaurantDTO>>> GetAll()
         {

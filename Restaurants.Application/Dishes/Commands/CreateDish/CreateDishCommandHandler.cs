@@ -24,7 +24,7 @@ namespace Restaurants.Application.Dishes.Commands.CreateDish
             _logger = logger;
             _restaurantsRepository = restaurantsRepository;
             _dishesRepository = dishesRepository;
-            _restaurantAuthorizationService = restaurantAuthorizationService
+            _restaurantAuthorizationService = restaurantAuthorizationService;
         }
         public async Task<int> Handle(CreateDishCommand request, CancellationToken cancellationToken)
         {
