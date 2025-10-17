@@ -22,7 +22,8 @@ namespace Restaurants.Application.Restaurants.Queries.GetAllRestaurants
         public async Task<IEnumerable<RestaurantDTO>> Handle(GetAllRestaurantsQuery request, CancellationToken cancellationToken)
         {
             _logger.LogInformation("Getting all restaurants");
-            var restaurants = await _restaurantsRepository.GetAllAsync();
+            
+            var restaurants = await _restaurantsRepository.GetAllMatchingAsync(request.SearchPhrase);
             var restaurantsDTO = _mapper.Map<IEnumerable<RestaurantDTO>>(restaurants);
             return restaurantsDTO!;
         }
