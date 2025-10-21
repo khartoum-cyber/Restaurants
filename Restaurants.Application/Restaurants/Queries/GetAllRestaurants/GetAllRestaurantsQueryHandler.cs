@@ -23,7 +23,7 @@ namespace Restaurants.Application.Restaurants.Queries.GetAllRestaurants
         {
             _logger.LogInformation("Getting all restaurants");
             
-            var restaurants = await _restaurantsRepository.GetAllMatchingAsync(request.SearchPhrase);
+            var restaurants = await _restaurantsRepository.GetAllMatchingAsync(request.SearchPhrase, request.PageSize, request.PageNumber);
             var restaurantsDTO = _mapper.Map<IEnumerable<RestaurantDTO>>(restaurants);
             return restaurantsDTO!;
         }
